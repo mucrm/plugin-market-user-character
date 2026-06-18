@@ -1,0 +1,142 @@
+ [x-cloak] {
+     display: none;
+ }
+
+ #mucrm-toast {
+     display: flex;
+     opacity: 0;
+     transform: translateY(-20px);
+     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     visibility: hidden;
+ }
+
+ #mucrm-toast.show {
+     opacity: 1;
+     transform: translateY(0);
+     visibility: visible;
+ }
+
+ /* --- Trix Editor Skin Light (White/Black) --- */
+
+ trix-editor {
+     background: #ffffff !important;
+     /* Branco puro */
+     color: #000000 !important;
+     /* Texto preto sólido */
+     border: 1px solid #e5e5e5 !important;
+     /* Cinza bem clarinho */
+     border-radius: 8px !important;
+     min-height: 300px !important;
+     padding: 1.2rem !important;
+     font-family: 'Inter', sans-serif !important;
+     outline: none !important;
+     transition: all 0.2s ease;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+ }
+
+ /* Quando foca: a borda fica preta pra manter o estilo White/Black */
+ trix-editor:focus {
+     border-color: #000000 !important;
+     box-shadow: 0 0 0 1px #000000 !important;
+ }
+
+ /* Barra de Ferramentas */
+ trix-toolbar {
+     margin-bottom: 5px !important;
+     background: #f9f9f9 !important;
+     /* Um gelo bem sutil pra separar */
+     padding: 5px !important;
+     border-radius: 8px 8px 0 0 !important;
+     border: 1px solid #e5e5e5 !important;
+     border-bottom: none !important;
+ }
+
+ trix-toolbar .trix-button-group {
+     border: 1px solid #e5e5e5 !important;
+     background: #ffffff !important;
+     border-radius: 4px !important;
+     margin-right: 5px !important;
+ }
+
+ /* Botões e Ícones */
+ trix-toolbar .trix-button {
+     border-bottom: none !important;
+     filter: none !important;
+     /* Ícones pretos originais do Trix */
+     opacity: 0.6;
+     transition: all 0.2s;
+ }
+
+ trix-toolbar .trix-button:hover {
+     background: #f0f0f0 !important;
+     opacity: 1;
+ }
+
+ trix-toolbar .trix-button--active {
+     background: #000000 !important;
+     /* Inverte: fundo preto e ícone branco */
+     filter: invert(1) !important;
+     opacity: 1;
+ }
+
+ /* Placeholder */
+ trix-editor:empty:not(:focus)::before {
+     color: #a1a1aa !important;
+ }
+
+ /* Diálogos de link */
+ .trix-dialog {
+     background: #ffffff !important;
+     border: 1px solid #000000 !important;
+     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+ }
+
+ .trix-dialog input {
+     border: 1px solid #e5e5e5 !important;
+     padding: 8px !important;
+ }
+
+ /* Barra de progresso de imagem (Preta pra combinar) */
+ .trix-progress-bar {
+     background: #000000 !important;
+ }
+
+ /* --- MUCRM Light Skin: Black/White (Sem Imagem e Code) --- */
+
+ /* Remove os botões de Anexo e Bloco (Code) via CSS */
+ .trix-button--icon-attach,
+ .trix-button--icon-code,
+ .trix-button-group--attach {
+     display: none !important;
+ }
+
+ trix-editor {
+     background: #ffffff !important;
+     color: #000000 !important;
+     border: 1px solid #e5e5e5 !important;
+     border-radius: 8px !important;
+     min-height: 300px !important;
+     padding: 1.2rem !important;
+     font-family: 'Inter', sans-serif !important;
+     outline: none !important;
+     transition: all 0.2s ease;
+ }
+
+ /* Foco agressivo em Preto */
+ trix-editor:focus {
+     border-color: #000000 !important;
+     box-shadow: 0 0 0 1px #000000 !important;
+ }
+
+ trix-toolbar .trix-button-group {
+     border: 1px solid #e5e5e5 !important;
+     background: #ffffff !important;
+     border-radius: 4px !important;
+ }
+
+ /* Botão Ativo: Inversão total Black/White */
+ trix-toolbar .trix-button--active {
+     background: #000000 !important;
+     filter: invert(1) !important;
+ }
+ 
