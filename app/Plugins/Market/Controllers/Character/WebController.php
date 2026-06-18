@@ -129,7 +129,7 @@ class WebController extends Controller
                 $userCoin->save();
 
                 // Deduz a taxa percentual configurada e força o saldo final como número inteiro puro
-                $discountPercentage = config('plugins.market_character.discount_percentage', 0);
+                $discountPercentage = config('app.plugins.market_character.discount_percentage', 0);
 
                 $finalSellerReceive = $ad->price - ($ad->price * ($discountPercentage / 100));
                 $sellerCoin->{$coin['column']} += (int) $finalSellerReceive;
