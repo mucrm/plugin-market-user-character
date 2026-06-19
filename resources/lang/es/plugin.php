@@ -24,6 +24,7 @@ return [
             'sale_settings'          => 'Configuración de Venta',
             'price'                  => 'Precio del Personaje',
             'sell'                   => 'Poner a la Venta',
+            'character_not_found'    => 'No encontramos este personaje. Puede haber sido vendido recientemente.',
             'buy_btn'                => 'Comprar',
             'removed'                => 'Retirar de la Venta',
             'character_removed'      => '¡Personaje retirado de la venta con éxito!',

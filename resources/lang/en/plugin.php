@@ -24,6 +24,7 @@ return [
             'sale_settings'          => 'Sale Settings',
             'price'                  => 'Character Price',
             'sell'                   => 'List for Sale',
+            'character_not_found'    => 'We couldn\'t find this character. It may have been sold recently.',
             'buy_btn'                => 'Buy Now',
             'removed'                => 'Remove from Sale',
             'character_removed'      => 'Character successfully removed from sale!',
