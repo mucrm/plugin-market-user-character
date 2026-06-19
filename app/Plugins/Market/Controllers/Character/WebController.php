@@ -110,7 +110,8 @@ class WebController extends Controller
                     throw new \Exception(__lang('plugin.market.character.insufficient_funds'));
                 }
 
-                $seller = User::where('memb___id', $ad->username)->first();
+                // Busca o vendedor
+                $seller = User::with('accountCharacter')->where('memb___id', $ad->username)->first();
 
                 if (!$seller) {
                     throw new \Exception(__lang('user.msg.character_not_found'));
@@ -135,8 +136,11 @@ class WebController extends Controller
                 $sellerCoin->{$coin['column']} += (int) $finalSellerReceive;
                 $sellerCoin->save();
 
+                $character = $ad->character;
+
+                $this->clearGameIDCSlot($seller->accountCharacter, $character->Name);
+
                 // Altera a propriedade do personagem na DB do jogo e libera o acesso (CtlCode 0)
-                $character            = $ad->character;
                 $character->AccountID = $user->memb___id;
                 $character->CtlCode   = 0;
                 $character->save();
@@ -180,5 +184,26 @@ class WebController extends Controller
         }
 
         return false;
+    }
+
+    /**
+ * Varre os slots de personagens da conta para encontrar e limpar o slot do personagem vendido
+ */
+    private function clearGameIDCSlot(mixed $accountCharacter, string $charName): void
+    {
+        if (!$accountCharacter) {
+            return;
+        }
+
+        $slots = ['GameID1', 'GameID2', 'GameID3', 'GameID4', 'GameID5'];
+
+        foreach ($slots as $slot) {
+            if (trim($accountCharacter->$slot) === $charName) {
+                $accountCharacter->$slot = null; // ou '' se sua DB não aceitar nulo
+                $accountCharacter->save();
+
+                break;
+            }
+        }
     }
 }
